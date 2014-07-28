@@ -266,3 +266,17 @@ Password for 'https://yeahframeoff@github.com':
 To https://github.com/yeahframeoff/toxa-commits-github.git
  - [deleted]         develop-feature2
 ```
+
+18) Tag current master state as v1.0 'release1'
+
+```
+$ git tag -a v1.0 -m release1
+$ git push --tags
+Username for 'https://github.com': yeahframeoff
+Password for 'https://yeahframeoff@github.com':
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 158 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/yeahframeoff/toxa-commits-github.git
+ * [new tag]         v1.0 -> v1.0
+```
