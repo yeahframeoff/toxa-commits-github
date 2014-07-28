@@ -1,8 +1,10 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main(void)
 {
-	printf("Hello, world!!!\n");
+	cout << "Hello, world!!!" << endl;
+	cin.ignore();
 	return 0;
 }
 
