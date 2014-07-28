@@ -300,6 +300,8 @@ $ git log develop master --pretty=format:"%s - %an: %ad " --grep=231
 
 ## Selective merge
 
+Variant 1
+
 Assume we're now now on develop-feature1 and we already pulled and found out that the coworker commited 3 more commits. Run following command to retrieve those 3 commits and our critical one:
 ```
 $ git checkout develop-feature1
@@ -331,4 +333,15 @@ The hash to remember is ```fb4f0f9```
 $ git checkout develop
 
 $ git merge fb4f0f9
+```
+
+Variant 2
+
+```
+$ git checkout develop-feature1
+$ git reset HEAD~3
+$ git checkout develop
+$ git merge develop-feature1
+$ git checkout develop-feature1
+$ git reset ORIG_HEAD
 ```
