@@ -253,7 +253,7 @@ To https://github.com/yeahframeoff/toxa-commits-github.git
    e80d981..28f7d91  master -> master
 ```
 
-17) Delete branch develop-feature2 locally and remotely
+18) Delete branch develop-feature2 locally and remotely
 
 ```
 $ git checkout develop
@@ -267,7 +267,7 @@ To https://github.com/yeahframeoff/toxa-commits-github.git
  - [deleted]         develop-feature2
 ```
 
-18) Tag current master state as v1.0 'release1'
+19) Tag current master state as v1.0 'release1'
 
 ```
 $ git tag -a v1.0 -m release1
