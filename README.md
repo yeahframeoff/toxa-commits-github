@@ -345,3 +345,50 @@ $ git merge develop-feature1
 $ git checkout develop-feature1
 $ git reset ORIG_HEAD
 ```
+
+### PART 3
+
+## Hiding "footprints"
+
+Assume we did 5 bad-messaged commits and pushed them
+
+Then we squash these 5 commits into 1:
+
+```
+$ git rebase -i HEAD~5
+```
+
+After that blank message appears:
+
+```
+pick 75b71ae Some ugly message 1
+pick 0227e30 Some ugly message 2
+pick e41e822 Some ugly message 3
+pick 274925a Some ugly message 4
+pick abb955d Some ugly message 5
+```
+
+We should change it like this: (changing messages is useless here)
+
+```
+pick 75b71ae Some ugly message 1
+squash 0227e30 Some ugly message 2
+squash e41e822 Some ugly message 3
+squash 274925a Some ugly message 4
+squash abb955d Some ugly message 5
+```
+
+After saving we write the message that team-lead would accept:
+
+```
+#
+0003: Feature 3 (grand commit)
+#
+```
+
+After that we rewrite the commit history on the remote with the following:
+
+```
+$ git push origin develop-feature3 -f
+```
+Here we force to rewrite origin/develop-feature3 branch history. After that on remote we see single commit with team-lead acceptable message.
