@@ -392,3 +392,28 @@ After that we rewrite the commit history on the remote with the following:
 $ git push origin develop-feature3 -f
 ```
 Here we force to rewrite origin/develop-feature3 branch history. After that on remote we see single commit with team-lead acceptable message.
+
+## UPD
+Another one way (and maybe more acceptable to keep every single commit separated). After ```$ git rebase -i HEAD~5```
+we see the last five commits:
+
+```
+pick 75b71ae Some ugly message 1
+pick 0227e30 Some ugly message 2
+pick e41e822 Some ugly message 3
+pick 274925a Some ugly message 4
+pick abb955d Some ugly message 5
+```
+
+So we rewrite messages in acceptable format right here, using ```reword``` everywhere instead of ```pick```:
+
+```
+reword 75b71ae 0003: Feature 3 (not so ugly message 1)
+reword 0227e30 0003: Feature 3 (not so ugly message 2)
+reword e41e822 0003: Feature 3 (not so ugly message 3)
+reword 274925a 0003: Feature 3 (not so ugly message 4)
+reword abb955d 0003: Feature 3 (not so ugly message 5)
+```
+
+After that we of cource force origin/develop-feature3 branch to overwrite:
+```$ git push origin develop-feature3 -f```
