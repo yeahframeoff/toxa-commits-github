@@ -253,7 +253,7 @@ To https://github.com/yeahframeoff/toxa-commits-github.git
    e80d981..28f7d91  master -> master
 ```
 
-18) Delete branch develop-feature2 locally and remotely
+17) Delete branch develop-feature2 locally and remotely
 
 ```
 $ git checkout develop
@@ -267,7 +267,7 @@ To https://github.com/yeahframeoff/toxa-commits-github.git
  - [deleted]         develop-feature2
 ```
 
-19) Tag current master state as v1.0 'release1'
+18) Tag current master state as v1.0 'release1'
 
 ```
 $ git tag -a v1.0 -m release1
@@ -279,4 +279,19 @@ Writing objects: 100% (1/1), 158 bytes | 0 bytes/s, done.
 Total 1 (delta 0), reused 0 (delta 0)
 To https://github.com/yeahframeoff/toxa-commits-github.git
  * [new tag]         v1.0 -> v1.0
+```
+
+
+### PART 1
+
+1.1) Command that outputs the message and author of each commit from branch "develop-feature1", which havr been made for last 3 hours and which are not on parent branches (develop, master):
+
+```
+$ git log develop-feature1 --pretty=format:"%h - %an: %s " --since=3.hours --max-parents=0
+```
+
+1.2) For each commit from branches master, develop which message contains specified issue number (for example, 231), outputs its subject, author name and date.
+
+```
+$ git log develop master --pretty=format:"%s - %an: %ad " --grep=231
 ```
