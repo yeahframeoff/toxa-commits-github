@@ -295,3 +295,40 @@ $ git log develop-feature1 --pretty=format:"%h - %an: %s " --since=3.hours --max
 ```
 $ git log develop master --pretty=format:"%s - %an: %ad " --grep=231
 ```
+
+### PART 2
+
+## Selective merge
+
+Assume we're now now on develop-feature1 and we already pulled and found out that the coworker commited 3 more commits. Run following command to retrieve those 3 commits and our critical one:
+```
+$ git checkout develop-feature1
+
+$ git log -4 --pretty=format:"%h"
+```
+Our "critical commit" appears on the bottom of the list with its hash. Remember the hash, then checkout to develop and merge with this commit:
+```
+$ git checkout develop
+
+$ git merge here_write_the_hash
+```
+
+For example:
+
+```
+$ git checkout develop-feature1
+
+$ git log -4 --pretty=format:"%h"
+e41e822
+0227e30
+75b71ae
+fb4f0f9
+```
+
+The hash to remember is ```fb4f0f9```
+
+```
+$ git checkout develop
+
+$ git merge fb4f0f9
+```
